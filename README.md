@@ -130,13 +130,13 @@ Exemple :
 **Sortie attendue :**
 
 ```
-.........
-.o....xxx
-......xxx
-......xxx
+.....xxxx
+.o...xxxx
+.....xxxx
+.....xxxx
 ```
 
-Même si ça ne ressemble pas vraiment à un carré, ça en est un, tant qu'il y a le même nombre de caracteres en lignes et en colonnes, le carré est défini. (Sur l'exemple ci-dessous on voit un carré 3x3)
+Même si ça ne ressemble pas vraiment à un carré, ça en est un, tant qu'il y a le même nombre de caracteres en lignes et en colonnes, le carré est défini. (Sur l'exemple ci-dessous on voit un carré 4x4)
 
 ---
 
