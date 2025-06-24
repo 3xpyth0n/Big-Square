@@ -15,7 +15,6 @@
 - [Format de la map](#format-de-la-map)
 - [Exemples](#exemples)
 - [Algorithme](#algorithme)
-- [Tests](#tests)
 - [Auteur](#auteur)
 
 ---
@@ -44,7 +43,7 @@ Le but est de repérer le plus grand carré constitué uniquement de cases vides
 2. **Prérequis**
 
    - Un compilateur C (gcc ou clang)
-   - Make (optionnel)
+   - Make
 
 ---
 
@@ -56,25 +55,29 @@ Le but est de repérer le plus grand carré constitué uniquement de cases vides
   make
   ```
 
-- **Sans Makefile**
-
-  ```bash
-  gcc -Wall -Wextra -Werror -o bsq *.c
-  ```
-
 ---
 
 ## Usage
 
+Pour générer une map, il faut utiliser le script Perl `gen_map.pl`, de la façon suivante :
+
+```bash
+./gen_map.pl x y z > fichier_contenant_la_map
+```
+
+x => correspond au nombre de lignes
+y => correspond au nombre de colonnes 
+z => correspond à la densité des obstacles sur la map
+
 ```bash
 # Lire depuis un fichier
-./bsq maps/map01.txt
+./bsq map
 
 # Plusieurs fichiers
-./bsq maps/map01.txt maps/map02.txt
+./bsq map map2
 
 # Lire depuis stdin
-cat maps/map01.txt | ./bsq
+gen_map.pl 10 12 3 | ./bsq
 ```
 
 - Si plusieurs fichiers sont passés en argument, le programme traite chaque carte séparément.
@@ -118,20 +121,22 @@ Exemple :
 
 ```
 4.ox
-....
-.o..
-....
-....
+.........
+.o.......
+.........
+.........
 ```
 
 **Sortie attendue :**
 
 ```
-xxxx
-xox.
-xxxx
-xxxx
+.........
+.o....xxx
+......xxx
+......xxx
 ```
+
+Même si ça ne ressemble pas vraiment à un carré, ça en est un, tant qu'il y a le même nombre de caracteres en lignes et en colonnes, le carré est défini. (Sur l'exemple ci-dessous on voit un carré 3x3)
 
 ---
 
@@ -139,31 +144,10 @@ xxxx
 
 1. Lecture et validation de la carte
 2. Conversion en matrice d’entiers
-3. Application de la programmation dynamique :
-   - `dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1`
-4. Recherche de la plus grande valeur dans `dp`
+3. Application de la programmation dynamique
+4. Recherche de la plus grande valeur
 5. Remplacement des `.` par `x`
 6. Affichage final
-
----
-
-## Tests
-
-- Le dossier `maps/` contient plusieurs fichiers de test :
-  - Cartes vides
-  - Cartes pleines d’obstacles
-  - Cas invalides
-  - Grandes dimensions
-
-- Script de test simple :
-
-  ```bash
-  #!/bin/bash
-  for map in maps/*.txt; do
-    echo "=== Test de $map ==="
-    ./bsq "$map" || echo "Erreur sur $map"
-  done
-  ```
 
 ---
 
