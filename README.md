@@ -1,14 +1,3 @@
-Ton fichier `README.md` est déjà bien structuré et clair. Voici quelques suggestions pour le finaliser :
-
-1. **Ajout d’un badge GitHub (optionnel mais pro)**
-2. **Lien vers le projet GitHub en haut**
-3. **Lien vers la licence (si tu veux laisser MIT ou autre)**
-4. **Ajout d’un champ `Licence` à la fin pour officialiser**
-
-Je te propose cette version complète mise à jour :
-
----
-
 ```md
 ## BSQ (Biggest Square)
 
