@@ -66,8 +66,8 @@ Pour générer une map, il faut utiliser le script Perl `gen_map.pl`, de la faç
 ```
 
 x => correspond au nombre de lignes.\
-y => correspond au nombre de colonnes.\ 
-z => correspond à la densité des obstacles sur la map.\
+y => correspond au nombre de colonnes.\
+z => correspond à la densité des obstacles sur la map.
 
 ```bash
 # Lire depuis un fichier
