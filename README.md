@@ -1,4 +1,18 @@
+Ton fichier `README.md` est déjà bien structuré et clair. Voici quelques suggestions pour le finaliser :
+
+1. **Ajout d’un badge GitHub (optionnel mais pro)**
+2. **Lien vers le projet GitHub en haut**
+3. **Lien vers la licence (si tu veux laisser MIT ou autre)**
+4. **Ajout d’un champ `Licence` à la fin pour officialiser**
+
+Je te propose cette version complète mise à jour :
+
+---
+
+```md
 ## BSQ (Biggest Square)
+
+[![GitHub repo](https://img.shields.io/badge/GitHub-Big--Square-blue?logo=github)](https://github.com/s2adr/Big-Square)
 
 **BSQ** est un projet de la piscine 42 dont l’objectif est de détecter et d’afficher le plus grand carré possible dans une carte composée de cases vides et d’obstacles.
 
@@ -6,25 +20,25 @@
 
 ## Table des matières
 
-* [Description](#description)
-* [Installation](#installation)
-* [Compilation](#compilation)
-* [Usage](#usage)
-* [Format de la map](#format-de-la-map)
-* [Exemples](#exemples)
-* [Algorithme](#algorithme)
-* [Tests](#tests)
-* [Auteur](#auteur)
+- [Description](#description)
+- [Installation](#installation)
+- [Compilation](#compilation)
+- [Usage](#usage)
+- [Format de la map](#format-de-la-map)
+- [Exemples](#exemples)
+- [Algorithme](#algorithme)
+- [Tests](#tests)
+- [Auteur](#auteur)
 
 ---
 
 ## Description
 
-Le programme lit une ou plusieurs cartes depuis des fichiers texte ou l’entrée standard, chaque carte étant constituée de lignes de mêmes longueurs.
+Le programme lit une ou plusieurs cartes depuis des fichiers texte ou l’entrée standard, chaque carte étant constituée de lignes de mêmes longueurs.\
 Chaque caractère représente :
 
-* `.` : une case vide
-* `o` : un obstacle
+- `.` : une case vide  
+- `o` : un obstacle
 
 Le but est de repérer le plus grand carré constitué uniquement de cases vides et de l’afficher en remplaçant les `.` qui le composent par `x`.
 
@@ -41,22 +55,20 @@ Le but est de repérer le plus grand carré constitué uniquement de cases vides
 
 2. **Prérequis**
 
-   * Un compilateur C (gcc ou clang)
-   * Make (optional, pour la facilité de compilation)
+   - Un compilateur C (gcc ou clang)
+   - Make (optionnel)
 
 ---
 
 ## Compilation
 
-* **Avec Makefile**
+- **Avec Makefile**
 
   ```bash
   make
   ```
 
-  Génère l’exécutable `bsq`.
-
-* **Sans Makefile**
+- **Sans Makefile**
 
   ```bash
   gcc -Wall -Wextra -Werror -o bsq *.c
@@ -77,8 +89,8 @@ Le but est de repérer le plus grand carré constitué uniquement de cases vides
 cat maps/map01.txt | ./bsq
 ```
 
-* Si plusieurs fichiers sont passés en argument, le programme traite chaque carte séparément.
-* En cas d’erreur (fichier non trouvé, format invalide), un message est affiché sur la sortie d’erreur et le programme continue avec le fichier suivant.
+- Si plusieurs fichiers sont passés en argument, le programme traite chaque carte séparément.
+- En cas d’erreur (fichier non trouvé, format invalide), un message est affiché sur la sortie d’erreur.
 
 ---
 
@@ -90,10 +102,10 @@ Le fichier commence par une ligne d’en-tête indiquant :
 <nombre_de_lignes><caractère_vide><caractère_obstacle><caractère_plein>
 ```
 
-* `<nombre_de_lignes>` : nombre total de lignes de la carte (entier positif)
-* `<caractère_vide>`   : caractère représentant une case vide (typiquement `.`)
-* `<caractère_obstacle>` : caractère pour obstacle (typiquement `o`)
-* `<caractère_plein>`    : caractère utilisé pour dessiner le plus grand carré (typiquement `x`)
+- `<nombre_de_lignes>` : nombre total de lignes de la carte (entier positif)
+- `<caractère_vide>`   : caractère représentant une case vide (typiquement `.`)
+- `<caractère_obstacle>` : caractère pour obstacle (typiquement `o`)
+- `<caractère_plein>`    : caractère utilisé pour dessiner le plus grand carré (typiquement `x`)
 
 Exemple :
 
@@ -140,25 +152,22 @@ xxxx
 1. Lecture et validation de la carte
 2. Conversion en matrice d’entiers
 3. Application de la programmation dynamique :
-
-   * Pour chaque cellule `(i, j)` vide, calcul de la taille du plus grand carré se terminant en `(i, j)`
-   * `dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1`
-4. Repérage de la plus grande valeur dans `dp`, et position du carré
-5. Remplacement des `.` par le caractère plein dans la carte originale
-6. Affichage de la carte modifiée
+   - `dp[i][j] = min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1`
+4. Recherche de la plus grande valeur dans `dp`
+5. Remplacement des `.` par `x`
+6. Affichage final
 
 ---
 
 ## Tests
 
-* Fournis plusieurs fichiers de test dans le dossier `maps/`, couvrant :
+- Le dossier `maps/` contient plusieurs fichiers de test :
+  - Cartes vides
+  - Cartes pleines d’obstacles
+  - Cas invalides
+  - Grandes dimensions
 
-  * Cartes entièrement vides
-  * Cartes pleines d’obstacles
-  * Cartes irrégulières (format invalide)
-  * Cartes de grandes dimensions
-
-* Tu peux automatiser les tests avec un script bash :
+- Script de test simple :
 
   ```bash
   #!/bin/bash
@@ -172,6 +181,5 @@ xxxx
 
 ## Auteur
 
-* **Saad** **Idrissi**
-
----
+**Saad Idrissi**  
+Projet réalisé pendant la piscine 42.
