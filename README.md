@@ -1,4 +1,3 @@
-```md
 ## BSQ (Biggest Square)
 
 [![GitHub repo](https://img.shields.io/badge/GitHub-Big--Square-blue?logo=github)](https://github.com/s2adr/Big-Square)
